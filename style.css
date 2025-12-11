@@ -1,0 +1,536 @@
+/* =========================================================
+   🌐 GLOBAL STYLING
+   ---------------------------------------------------------
+   Aturan dasar seluruh halaman: font, warna dasar, layout
+   ========================================================= */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: #f6f8fa;
+  color: #000000;
+}
+
+
+/* =========================================================
+   🧭 HEADER (TETAP DI ATAS)
+   ---------------------------------------------------------
+   Header berisi judul + jam realtime, fixed di atas layar
+   ========================================================= */
+header {
+  background: linear-gradient(#ff002b);
+  color: white;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  padding: 4px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 98%;
+  z-index: 10000;
+}
+
+/* Judul di kanan atas header */
+header h1 {
+  font-size: 15px;
+  margin: 0;
+  position: absolute;
+  top: 8px;
+  right: 80px;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+/* Jam realtime di pojok kanan header */
+#clock {
+  font-weight: 600;
+  font-size: 15px;
+  background-color: rgba(19, 19, 19, 0.9);
+  padding: 5px 14px;
+  border-radius: 55px;
+  letter-spacing: 1px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+
+/* =========================================================
+   📋 MAIN CONTENT / TABEL DATA
+   ---------------------------------------------------------
+   Bagian utama untuk menampilkan tabel daftar booking
+   ========================================================= */
+main {
+  padding: 50px 10px 10px; /* beri jarak agar tidak tertutup header */
+}
+
+/* Struktur dasar tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Header tabel */
+th {
+  background-color: #a81010;
+  color: #fff;
+  padding: 12px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Isi tabel */
+td {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+/* Efek hover baris tabel */
+tr:hover {
+  background-color: #f1f6f9;
+  transition: background-color 0.3s ease;
+}
+
+
+/* =========================================================
+   🔰 STATUS BOOKING
+   ---------------------------------------------------------
+   Label warna berbeda untuk status ruangan
+   ========================================================= */
+.status {
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 5px 12px;
+  color: white;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.personal { background-color: #dd0cd3; } /* pink */
+.status.berlangsung { background-color: #28a745; } /* Hijau */
+.status.belum { background-color: #ffc107;} /* Kuning */
+.status.selesai { background-color: #dc3545; } /* Merah */
+
+
+/* =========================================================
+   🏠 ROOM BADGE
+   ---------------------------------------------------------
+   Warna gradasi berbeda sesuai tipe ruangan
+   ========================================================= */
+.room-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.room-reguler {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.room-smoking {
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+  color: #222;
+}
+
+.room-vip {
+  background: linear-gradient(135deg, #ffd700, #ffb300);
+  color: #222;
+}
+
+.room-vvip {
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+}
+
+
+/* =========================================================
+   🕹️ CONSOLE LABEL (PS4 / PS5)
+   ========================================================= */
+.console-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.console-ps4 {
+  background: linear-gradient(135deg, #061aca, #1a39ff); /* Biru */
+}
+
+.console-ps5 {
+  background: linear-gradient(135deg, #902be2, #bf8fff); /* Ungu */
+}
+
+
+/* =========================================================
+   ⏰ TIME WARNING POPUP (Notifikasi waktu hampir habis)
+   ========================================================= */
+.time-warning {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #f39c12;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: slideIn 0.4s ease;
+  z-index: 9999;
+  transition: all 0.5s ease;
+}
+
+
+/* =========================================================
+   💬 POPUP DETAIL BOOKING
+   ---------------------------------------------------------
+   Popup overlay di tengah layar berisi detail pelanggan
+   ========================================================= */
+#bookingDetailPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-card {
+  position: relative;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  width: 300px;
+  max-width: 80%;
+  font-family: "Poppins", sans-serif;
+  animation: popIn 0.3s ease;
+}
+
+.popup-card h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.popup-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popup-card li {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.popup-card button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 8px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.popup-card button:hover {
+  background: #0056b3;
+}
+
+
+/* =========================================================
+   🔲 POPUP RUANGAN TERSEDIA
+   ---------------------------------------------------------
+   Muncul di bawah header ketika ada ruangan kosong
+   ========================================================= */
+#availableRoomsPopup {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 15px 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  z-index: 9999;
+  text-align: left;
+  min-width: 300px;
+  max-width: 90%;
+  backdrop-filter: blur(10px);
+  animation: fadeSlideDown 0.5s ease;
+}
+
+#availableRoomsPopup h3 {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  color: #222;
+  text-align: center;
+}
+
+.popup-group {
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #333;
+  font-weight: 500;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+
+/* =========================================================
+   ⚙️ ANIMASI (Fade, Slide, Pop)
+   ========================================================= */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translate(-50%, -20px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* =========================================================
+   🦶 FOOTER (TETAP DI BAWAH, BADGE PUTIH DI TENGAH)
+   ========================================================= */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1e1e2f;
+  color: #fff;
+  font-size: 14px;
+  z-index: 1000;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 280px;
+  border-top: 2px solid #ec1616;
+}
+
+/* Badge utama di tengah footer */
+footer .badge {
+  background: #fff;
+  color: #1e1e2f;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Panel status di sebelah kanan footer */
+.footer-status {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid #fff;
+  border-radius: 12px;
+  padding: 3px 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* Setiap status di dalam footer */
+.footer-status span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+/* Warna khusus tiap status */
+.footer-status .belum { color: #2ecc71; }      /* Hijau */
+.footer-status .berlangsung { color: #f1c40f; }/* Kuning */
+.footer-status .selesai { color: #3498db; }    /* Biru */
+
+
+
+/* =========================================================
+   🧩 PANEL RINGKASAN DI HEADER (KOSONG / TERISI / BOOKING)
+   ========================================================= */
+#roomSummary {
+  position: fixed;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  background: #fff;
+  padding: 6px 16px;
+  border-radius: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  z-index: 10001;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0e0d0d;
+  letter-spacing: 0.5px;
+}
+
+#roomSummary .summary-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#roomSummary .kosong span { color: #2ecc71; } /* Hijau */
+#roomSummary .terisi span { color: #f1c40f; } /* Kuning */
+#roomSummary .booking span { color: #3498db; } /* Biru */
+
+/* === Popup Tengah Minimalis (Diperbaiki) === */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(6px);
+}
+
+.popup.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.popup-content {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  text-align: center;
+  width: 350px;
+  animation: popupBounce 0.4s ease;
+  border: 3px solid #16a34a;
+}
+
+.popup-content h2 {
+  margin-bottom: 14px;
+  font-size: 1.6em;
+  color: #111827;
+  font-weight: 700;
+}
+
+.popup-content h2::before {
+  content: "🎮 ";
+}
+
+.popup-content p {
+  margin: 4px 0;
+  font-size: 1.05em;
+  font-weight: 500;
+  color: #374151;
+}
+
+.popup-content .nama-highlight {
+  color: #16a34a;
+  font-size: 1.4em;
+  font-weight: 800;
+}
+
+#popupCountdown {
+  font-weight: 800;
+  font-size: 2.2em;
+  color: #ef4444;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+/* Animasi */
+@keyframes popupBounce {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+.fade-out{opacity:0;transition:opacity .8s;}
+.fade-in{opacity:1;transition:opacity .8s;}
+/* Popup masuk waktu sholat */
+.popup-sholat-manual {
+  position: fixed;
+  bottom: -10px;
+  left: 20px;
+  padding: 10px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8f406;
+  z-index: 99999;
+  animation: fadeInUp 0.4s ease;
+}
+
+/* Countdown 1 menit sebelum sholat */
+.popup-sholat-countdown {
+  position: fixed;
+  bottom: -10px;
+  left: 10px;
+  color: rgb(26, 211, 243);
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 99999;
+  animation: fadeInUp 0.4s ease;
+}
+/* Efek berkedip untuk popup waktu sholat */
+.blink-sholat {
+  animation: sholatBlink 1s ease-in-out infinite;
+}
+
+@keyframes sholatBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+

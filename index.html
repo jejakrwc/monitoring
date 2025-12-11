@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Monitoring Ruangan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+<header>
+  
+  <div class="header-top">
+    <h1>SISTEM MONITORING GAMEZONE</h1>
+    <div id="clock"></div>
+  </div>
+
+  <div id="roomSummary">
+    <div class="summary-item kosong">🟢 Kosong: <span id="countKosong">0</span></div>
+    <div class="summary-item terisi">🟡 Terisi: <span id="countTerisi">0</span></div>
+    <div class="summary-item booking">🔵 Booking: <span id="countBooking">0</span></div>
+  </div>
+</header>
+
+<main>
+  <div class="table-container">
+    <table id="monitoringTable">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Tanggal</th>
+          <th>Jam Mulai</th>
+          <th>Durasi</th>
+          <th>Konsol</th>
+          <th>Ruangan</th>
+          <th>Status</th>
+          <th>Sisa Waktu</th>
+          <th>Order Melalui</th>
+          <th>Operator</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+</main>
+
+<footer>
+  <span class="badge">SISTEM MONITORING RUANGAN</span>
+  <div class="footer-status">
+    <span class="belum">🟢 BELUM MULAI : Status Dibooking</span>
+    <span class="berlangsung">🟡 BERLANGSUNG : Sedang Main</span>
+    <span class="selesai">🔵 SELESAI : Ruangan Kosong</span>
+  </div>
+</footer>
+
+<!-- Popup Tengah -->
+<div id="popup" class="popup hidden">
+  <div class="popup-content">
+    <h2>Halooo kak, <span id="popupNama" class="nama-highlight"></span> 👋</h2>
+    <p>Ruangan: <span id="popupRuangan"></span></p>
+    <p>Jam Mulai: <span id="popupMulai"></span></p>
+    <p>Durasi: <span id="popupDurasi"></span> jam</p>
+    <p>Mulai dalam: <span id="popupCountdown">10</span> detik</p>
+  </div>
+</div>
+
+
+<script src="data-booking.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

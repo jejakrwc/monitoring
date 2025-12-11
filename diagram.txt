@@ -1,0 +1,25 @@
+            +-------------------+
+            |   Admin Device    |
+            |  (PC / Tablet)   |
+            |  browser buka    |
+            | http://ESP32_IP/admin
+            +-------------------+
+                     |
+                     | WiFi / LAN
+                     v
+            +-------------------+
+            |      ESP32        |
+            |   Web Server +    |
+            |   File Storage    |
+            |  (HTML, CSS, JS) |
+            +-------------------+
+                     |
+         ------------------------
+         |                      |
+         v                      v
++-------------------+    +-------------------+
+|  Monitor / SmartTV|    |  Data JSON        |
+|  browser buka     |    |  data-booking.js  |
+| http://ESP32_IP/  |    |  update via admin |
+|   dashboard       |    +-------------------+
++-------------------+

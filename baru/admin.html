@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>GameZone Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>GameZone Admin</h1>
+    <div id="clock"></div>
+  </header>
+  <main>
+    <h2>Daftar Harga</h2>
+    <div id="priceList"></div>
+    <h2>Booking Saat Ini</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama</th><th>Tanggal</th><th>Mulai</th><th>Durasi</th>
+          <th>Console</th><th>Room</th><th>Operator</th>
+        </tr>
+      </thead>
+      <tbody id="adminTableBody"></tbody>
+    </table>
+  </main>
+
+  <script src="data-booking.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Render price list untuk admin
+    function renderPriceList() {
+      const container = document.getElementById("priceList");
+      container.innerHTML = "";
+      for (let group in priceList) {
+        const row = document.createElement("div");
+        row.textContent = `${group}: PS4 = ${priceList[group].PS4}, PS5 = ${priceList[group].PS5}`;
+        container.appendChild(row);
+      }
+    }
+    renderPriceList();
+
+    // Render table admin
+    function renderAdminTable() {
+      const tbody = document.getElementById("adminTableBody");
+      tbody.innerHTML = "";
+      bookedData.forEach(item=>{
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${item.nama}</td>
+          <td>${item.date}</td>
+          <td>${item.start}</td>
+          <td>${item.duration}</td>
+          <td>${item.konsol}</td>
+          <td>${item.room}</td>
+          <td>${item.operator}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+    renderAdminTable();
+  </script>
+</body>
+</html>
